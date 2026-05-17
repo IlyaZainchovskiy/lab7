@@ -1,0 +1,39 @@
+<Window
+    x:Class="lab7.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:lab7"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListView x:Name="RecipesListView" Grid.Column="0" SelectionChanged="RecipesListView_SelectionChanged" BorderBrush="Gray" BorderThickness="1" Margin="0,0,20,0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="0,5">
+                        <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="18"/>
+                        <TextBlock Text="{Binding Category.Name}" FontStyle="Italic" Foreground="Gray"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Grid.Column="1" Spacing="10">
+            <TextBlock Text="Назва рецепту:" FontWeight="SemiBold"/>
+            <TextBox x:Name="RecipeNameTextBox" />
+
+            <TextBlock Text="Інструкція:" FontWeight="SemiBold"/>
+            <TextBox x:Name="InstructionsTextBox" AcceptsReturn="True" Height="100" TextWrapping="Wrap"/>
+
+            <Button x:Name="AddButton" Content="Додати" Click="AddButton_Click" HorizontalAlignment="Stretch"/>
+            <Button x:Name="UpdateButton" Content="Оновити" Click="UpdateButton_Click" HorizontalAlignment="Stretch"/>
+            <Button x:Name="DeleteButton" Content="Видалити" Click="DeleteButton_Click" HorizontalAlignment="Stretch" Background="#FFDDDD"/>
+        </StackPanel>
+    </Grid>
+</Window>

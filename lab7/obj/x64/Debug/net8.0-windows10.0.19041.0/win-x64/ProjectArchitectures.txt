@@ -1,0 +1,1 @@
+D:\МНТУ\ООП\lab7\lab7\lab7.csproj;x64
